@@ -1,0 +1,440 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Dosis", sans-serif;
+	background: url(image.jpg) center no-repeat;
+	background-size: cover;
+}
+
+.header{
+	
+	position: absolute;
+	padding: 25px;
+	top: 20px;
+	text-transform: uppercase;
+	color: #483a53;
+	text-indent: 60px;
+	font-size: 190%;
+	display: flex;
+}
+
+.container {
+	width: 100%;
+	height: 100vh;
+	
+	overflow: hidden;
+	position: relative;
+}
+
+.banner-text{
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	color: #555c66;
+	padding-top: 180px;
+}
+.banner-text h1{
+	font-size: 60px;
+	animation: moveToLeft 2s;
+
+}
+.banner-text p{
+	font-size: 22px;
+	font-style: italic;
+	animation: moveToRight 2s;
+
+}
+
+.banner-button button{
+	position: relative;
+	width: 180px;
+	padding: 12px;
+	margin: 20px;
+	border: 2px solid #a35559;
+	border-radius: 50px;
+	font-size: 18px;
+	outline: none;
+	letter-spacing: 1px;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.btn-right {
+	background:transparent;
+	color: #eee;
+	left: 200px;
+	top: 450px;
+	animation-name: animateBtn;
+	animation-duration: 1s;
+	animation-delay: 2.3s;
+	animation-fill-mode: backwards;
+}
+
+.btn-left {
+	background:transparent;
+	color: #eee;
+	left: 170px;
+	top: 450px;
+	animation-name: animateBtn;
+	animation-duration: 1s;
+	animation-delay: 1.5s;
+	animation-fill-mode: backwards;
+}
+
+.btn-left:hover span{
+	width: 100%;
+}
+.btn-right:hover span{
+	width: 100%;
+}
+.btn-left:hover{
+	border: none;
+	background: #a35559;
+}
+.btn-right:hover{
+	border: none;
+	background: #a35559;
+}
+
+span{
+	height: 100%;
+	width: 100%;
+	border-radius: 25px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: -1;
+	transition: 0.5s;
+}
+
+
+@keyframes moveToLeft {
+	0% {
+		transform: translateX(120px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes moveToRight {
+	0% {
+		transform: translateX(-120px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes animateBtn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+
+.navbar {
+	width: 300px;
+	height: 100%;
+	background-color: #555462;
+	position: fixed;
+	top: 0;
+	right: -300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: right 0.8s cubic-bezier(1, 0, 0, 1);
+}
+
+.change {
+	right: 0;
+}
+
+.menu {
+	width: 35px;
+	height: 30px;
+	position: fixed;
+	top: 50px;
+	right: 50px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.line {
+	width: 100% ;
+	height: 3px;
+	background-color: #483a53;
+	transition: all 0.8s; 
+}
+
+.change .line-1 {
+	transform: rotateZ(-405deg) translate(-8px, 6px);
+}
+
+.change .line-2 {
+	opacity: 0;
+}
+
+.change .line-3 {
+	transform: rotateZ(405deg) translate(-8px, -6px);
+}
+
+
+
+.nav-list {
+	text-align: right;
+}
+
+.nav-item {
+	list-style: none;
+	margin: 25px;
+}
+
+.nav-link {
+	text-decoration: none;
+	font-size: 22px;
+	color: #eee;
+	font-weight: 300;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	position: relative;
+	padding: 3px 0;
+}
+
+.nav-link::before,
+.nav-link::after {
+	content: "";
+	width: 100%;
+	height: 2px;
+	background-color: #eee;
+	position: absolute;
+	left: 0;
+	transform: scaleX(0);
+	transition: transform 0.5s;
+}
+
+.nav-link::after {
+	bottom: 0;
+	transform-origin: right;
+}
+
+.nav-link::before {
+	top: 0;
+	transform-origin: left;
+}
+
+.nav-link:hover::before,
+.nav-link:hover::after {
+	transform: scaleX(1);
+}
+
+.play {
+	position: absolute;
+	left: 550px;
+	top: 360px;
+	display: inline-flex;
+	justify-content: flex-start;
+	align-items: center;
+	color: #483a53;
+	font-weight: 500;
+	text-decoration: none;
+	letter-spacing: 2px;
+	font-size: 1.2em;
+	animation-name: moveToRight;
+	animation-duration: 2s;
+
+}
+.play img{
+	margin-right: 10px;
+	max-width: 50px;
+}
+
+.video {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10000;
+	background: rgba(0, 0, 0, 95);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.video.active {
+	visibility: visible;
+	opacity: 1;
+}
+
+.video video{
+	max-width: 900px;
+	outline: none;
+}
+.video .close{
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	cursor: pointer;
+	filter: invert(1);
+	max-width: 32px;
+}
+
+/* Form model*/
+
+.bg-model {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 0;
+	display: none;
+}
+
+.ferme{
+	position: absolute;
+	top: 0;
+	right: 14px;
+	font-size: 42px;
+	transform: rotate(45deg);
+	cursor: pointer;
+  }
+
+.form-box {
+	width: 380px;
+	height: 480px;
+	position: relative;
+	margin: 6% auto;
+	background: #fff;
+	padding: 5px;
+	overflow: hidden;
+}
+
+
+.btt-box {
+	width: 220px;
+	margin: 35px auto;
+	position: relative;
+	box-shadow: 0 0 20px 9px #a35559;
+	border-radius: 30px;
+}
+
+.toggle-btt {
+	padding: 10px 30px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+}
+
+#btt {
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background: linear-gradient(to right,#a35559,#483a53);
+	border-radius: 30px;
+	transition: .5s;
+}
+
+.social-icons {
+	margin: 40px auto;
+	text-align: center;
+}
+.social-icons img{
+	width: 35px;
+	margin: 0 12px;
+	box-shadow: 0 0 20px 0 #483a53;
+	cursor: pointer;
+	border-radius: 50%;
+}
+.input-group{
+	top: 180px;
+	position: absolute;
+	width: 280px;
+	transition: .5s;
+}
+.input-field{
+	width: 100%;
+	padding: 10px 0;
+	margin: 5px 0;
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background: transparent;
+}
+
+.remember{
+	margin-bottom: 10px;
+  }
+.remember a{
+	color:#555c66;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.remember a:hover{
+	text-decoration: underline;
+  }
+
+.condition p {
+	color:#555462;
+	font-size: 13px;
+	position: absolute;
+	top: 203px;
+	left: 25px;
+}
+
+.submit-btt{
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: linear-gradient(to right,#a35559,#483a53);
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+.check-box {
+	margin: 20px 10px 20px 0;
+}
+
+.close-botton{
+	position: absolute;
+	color: #555462;
+	background-color: transparent;
+	font-size: 15px;
+	top: 30px;
+	right: 30px;
+	cursor: pointer;
+	border-color: transparent;
+}
+
+
+#log {
+	left: 50px;
+}
+#register {
+	left: 450px;
+}
